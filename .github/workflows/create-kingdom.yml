@@ -15,32 +15,22 @@
 name: 'Create Infra'
 
 on:
+  workflow_call:
   workflow_dispatch:
-    inputs:
-      environment:
-        type: choice
-        description: 'Environment to run the flow for.'
-        options:
-          - QA
-          - NIGHTLY
-      create_kingdom:
-        required: true
-        type: boolean
-      create_duchy-1:
-        required: true
-        type: boolean
-      create_duchy-2:
-        required: true
-        type: boolean
-      create_duchy-3:
-        required: true
-        type: boolean
 
 permissions:
   contents: read
   id-token: write
 
 jobs:
+  reusable_workflow_job:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/labeler@v4
+        with:
+          environment: ${{ secrets.envPAT }}
+          configuration-path: ${{ inputs.config-path }}
+
   terraform:
     name: 'Halo CMM'
     runs-on: ubuntu-22.04
@@ -49,19 +39,4 @@ jobs:
       - name: Create Kingdom
         if: inputs.create_kingdom == true
         run: echo "Kingdom Created."
-        shell: bash
-
-      - name: Create Duchy - 1
-        if: inputs.create_duchy-1 == true
-        run: echo "Duchy-1 Created."
-        shell: bash
-
-      - name: Create Duchy - 2
-        if: inputs.create_duchy-2 == true
-        run: echo "Duchy-2 Created."
-        shell: bash
-
-      - name: Create Duchy - 3
-        if: inputs.create_duchy-3 == true
-        run: echo "Duchy-3 Created."
         shell: bash
