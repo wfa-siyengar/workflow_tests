@@ -19,8 +19,20 @@ on:
     inputs:
       environment:
         description: 'Environment to run the flow for.'
-        type: environment
         required: true
+        type: string
+      create_kingdom:
+        required: true
+        type: boolean
+      create_duchy-1:
+        required: true
+        type: boolean
+      create_duchy-2:
+        required: true
+        type: boolean
+      create_duchy-3:
+        required: true
+        type: boolean
 
 permissions:
   contents: read
@@ -33,5 +45,17 @@ jobs:
 
     steps:
       - name: Create Kingdom
-        shell: bash
         run: echo "Kingdom Created."
+        shell: bash
+
+      - name: Create Duchy - 1
+        run: echo "Duchy-1 Created."
+        shell: bash
+
+      - name: Create Duchy - 2
+        run: echo "Duchy-2 Created."
+        shell: bash
+
+      - name: Create Duchy - 3
+        run: echo "Duchy-3 Created."
+        shell: bash
