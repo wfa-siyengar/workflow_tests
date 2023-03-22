@@ -23,16 +23,16 @@ on:
         options:
           - QA
           - NIGHTLY
-      create_kingdom:
+      deploy_kingdom:
         required: true
         type: boolean
-      create_duchy-1:
+      deploy_duchy-1:
         required: true
         type: boolean
-      create_duchy-2:
+      deploy_duchy-2:
         required: true
         type: boolean
-      create_duchy-3:
+      deploy_duchy-3:
         required: true
         type: boolean
 
