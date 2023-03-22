@@ -18,9 +18,12 @@ on:
   workflow_dispatch:
     inputs:
       environment:
+        type: choice
         description: 'Environment to run the flow for.'
-        required: true
-        type: string
+        options:
+          - UAT
+          - DEV
+          - PRD
       create_kingdom:
         required: true
         type: boolean
@@ -45,17 +48,21 @@ jobs:
 
     steps:
       - name: Create Kingdom
+        if: inputs.create_kingdom == true
         run: echo "Kingdom Created."
         shell: bash
 
       - name: Create Duchy - 1
+        if: inputs.create_duchy-1 == true
         run: echo "Duchy-1 Created."
         shell: bash
 
       - name: Create Duchy - 2
+        if: inputs.create_duchy-2 == true
         run: echo "Duchy-2 Created."
         shell: bash
 
       - name: Create Duchy - 3
+        if: inputs.create_duchy-3 == true
         run: echo "Duchy-3 Created."
         shell: bash
