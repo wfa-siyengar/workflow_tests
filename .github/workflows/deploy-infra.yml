@@ -42,15 +42,13 @@ permissions:
 
 jobs:
   terraform:
-    name: 'Halo CMM'
+    name: 'Orchestrator here'
     runs-on: ubuntu-22.04
+  kingdom:
+    if: inputs.create_kingdom == true
+    uses: ./.github/workflows/deploy-kingdom.yml
 
     steps:
-      - name: Create Kingdom
-        if: inputs.create_kingdom == true
-        run: echo "Kingdom Created."
-        shell: bash
-
       - name: Create Duchy - 1
         if: inputs.create_duchy-1 == true
         run: echo "Duchy-1 Created."
