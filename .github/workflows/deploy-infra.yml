@@ -41,6 +41,13 @@ permissions:
   id-token: write
 
 jobs:
-  job1:
+  deploy-kingdom:
     if: inputs.create_kingdom == true
     uses: ./.github/workflows/deploy-kingdom.yml
+
+  deploy-duchy:
+    if: inputs.create_duchy-1 == true
+    uses: ./.github/workflows/deploy-duchy.yml
+    with:
+      duchy_name: "duchy-1"
+      environment: ${{ inputs.environment }}
