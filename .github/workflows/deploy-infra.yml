@@ -43,7 +43,8 @@ permissions:
 jobs:
   kingdom_definition:
     uses: ./.github/workflows/deploy-kingdom.yml
+
   kingdom:
     runs-on: ubuntu-latest
     if: inputs.create_kingdom == true
-    needs: kingdom
+    needs: kingdom_definition
