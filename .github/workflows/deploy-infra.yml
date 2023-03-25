@@ -48,3 +48,5 @@ jobs:
     runs-on: ubuntu-latest
     if: inputs.create_kingdom == true
     needs: job1
+    steps:
+      - run: needs.job1
