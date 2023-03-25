@@ -43,10 +43,3 @@ permissions:
 jobs:
   job1:
     uses: ./.github/workflows/deploy-kingdom.yml
-
-  job2:
-    runs-on: ubuntu-latest
-    if: inputs.create_kingdom == true
-    needs: job1
-    steps:
-      - run: needs.job1
