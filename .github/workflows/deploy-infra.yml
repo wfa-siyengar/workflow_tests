@@ -47,4 +47,5 @@ jobs:
   job2:
     runs-on: ubuntu-latest
     if: inputs.create_kingdom == true
-    needs: kingdom_definition
+    needs: job1
+      - run:
