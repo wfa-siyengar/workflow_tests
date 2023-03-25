@@ -42,12 +42,26 @@ permissions:
 
 jobs:
   deploy-kingdom:
-    if: inputs.create_kingdom == true
+    if: inputs.deploy_kingdom == true
     uses: ./.github/workflows/deploy-kingdom.yml
 
-  deploy-duchy:
+  deploy-duchy-1:
     if: inputs.deploy_duchy-1 == true
     uses: ./.github/workflows/deploy-duchy.yml
     with:
       duchy_name: "duchy-1"
+      environment: ${{ inputs.environment }}
+
+  deploy-duchy-2:
+    if: inputs.deploy_duchy-2 == true
+    uses: ./.github/workflows/deploy-duchy.yml
+    with:
+      duchy_name: "duchy-2"
+      environment: ${{ inputs.environment }}
+
+  deploy-duchy-3:
+    if: inputs.deploy_duchy-3 == true
+    uses: ./.github/workflows/deploy-duchy.yml
+    with:
+      duchy_name: "duchy-3"
       environment: ${{ inputs.environment }}
