@@ -42,4 +42,5 @@ permissions:
 
 jobs:
   job1:
+    if: inputs.create_kingdom == true
     uses: ./.github/workflows/deploy-kingdom.yml
