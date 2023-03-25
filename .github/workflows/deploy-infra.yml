@@ -18,8 +18,11 @@ on:
   workflow_dispatch:
     inputs:
       environment:
-        type: string
+        type: choice
         description: 'Environment to run the flow for.'
+        options:
+          - QA
+          - NIGHTLY
       deploy_kingdom:
         required: true
         type: boolean

@@ -21,11 +21,8 @@ on:
         type: string
         description: 'Name of the Duchy'
       environment:
-        type: choice
+        type: string
         description: 'Environment to run the flow for.'
-        options:
-          - QA
-          - NIGHTLY
 
 permissions:
   contents: read
