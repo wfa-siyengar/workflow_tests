@@ -41,10 +41,11 @@ permissions:
   id-token: write
 
 jobs:
-  kingdom_definition:
+  job1:
     uses: ./.github/workflows/deploy-kingdom.yml
 
-  kingdom:
+  job2:
     runs-on: ubuntu-latest
     if: inputs.create_kingdom == true
     needs: kingdom_definition
+      - run:
