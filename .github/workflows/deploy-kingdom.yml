@@ -12,7 +12,7 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-name: 'Create Infra'
+name: 'Deploy Kingdom'
 
 on:
   workflow_call:
@@ -22,13 +22,10 @@ permissions:
   id-token: write
 
 jobs:
-  terraform:
-    name: 'Kingdom Here'
-    runs-on: ubuntu-22.04
-
   reusable_workflow_job:
     runs-on: ubuntu-latest
-    steps:
-      - name: Create Kingdom
-        run: echo "Kingdom Created."
-        shell: bash
+
+  steps:
+    - name: Create Kingdom
+      run: echo "Kingdom Created."
+      shell: bash
