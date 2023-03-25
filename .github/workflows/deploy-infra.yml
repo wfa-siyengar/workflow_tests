@@ -48,4 +48,4 @@ jobs:
     runs-on: ubuntu-latest
     if: inputs.create_kingdom == true
     needs: job1
-      - run:
+      - run: echo "Running Kingdom"
