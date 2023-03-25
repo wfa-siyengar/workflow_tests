@@ -22,7 +22,7 @@ permissions:
   id-token: write
 
 jobs:
-  example_job:
+  deploy_kingdom:
     runs-on: ubuntu-latest
     steps:
       - name: Create Kingdom
