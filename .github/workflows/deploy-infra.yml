@@ -47,3 +47,22 @@ jobs:
   kingdom:
     if: inputs.create_kingdom == true
     uses: ./.github/workflows/deploy-kingdom.yml
+
+  infra:
+    - runs-on: ubuntu-latest
+      needs: kingdom
+
+    - name: Create Duchy - 1
+      if: inputs.create_duchy-1 == true
+      run: echo "Duchy-1 Created."
+      shell: bash
+
+    - name: Create Duchy - 2
+      if: inputs.create_duchy-2 == true
+      run: echo "Duchy-2 Created."
+      shell: bash
+
+    - name: Create Duchy - 3
+      if: inputs.create_duchy-3 == true
+      run: echo "Duchy-3 Created."
+      shell: bash
