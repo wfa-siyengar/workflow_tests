@@ -49,7 +49,7 @@ jobs:
     if: inputs.create_image == true
     steps:
       - id: get-image-tag
-        run: ./.github/workflows/export-image-tag.sh
+        run: ls -ltr
       - id: echo-the-tag
         run: echo "The tag Generated is $IMAGE_TAG"
 
