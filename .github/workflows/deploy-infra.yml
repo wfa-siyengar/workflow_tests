@@ -45,6 +45,7 @@ permissions:
 
 jobs:
   image-tag:
+    runs-on: ubuntu-latest
     if: inputs.create_image == true
     steps:
       - id: get-image-tag
@@ -53,10 +54,12 @@ jobs:
         run: echo "The tag Generated is $IMAGE_TAG"
 
   deploy-kingdom:
+    runs-on: ubuntu-latest
     if: inputs.deploy_kingdom == true
     uses: ./.github/workflows/deploy-kingdom.yml
 
   deploy-duchy-1:
+    runs-on: ubuntu-latest
     if: inputs.deploy_duchy-1 == true
     uses: ./.github/workflows/deploy-duchy.yml
     with:
@@ -64,6 +67,7 @@ jobs:
       environment: ${{ inputs.environment }}
 
   deploy-duchy-2:
+    runs-on: ubuntu-latest
     if: inputs.deploy_duchy-2 == true
     uses: ./.github/workflows/deploy-duchy.yml
     with:
@@ -71,6 +75,7 @@ jobs:
       environment: ${{ inputs.environment }}
 
   deploy-duchy-3:
+    runs-on: ubuntu-latest
     if: inputs.deploy_duchy-3 == true
     uses: ./.github/workflows/deploy-duchy.yml
     with:
