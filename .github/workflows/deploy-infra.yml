@@ -56,6 +56,8 @@ jobs:
   deploy-kingdom:
     if: inputs.deploy_kingdom == true
     uses: ./.github/workflows/deploy-kingdom.yml
+    with:
+      image_tag: $IMAGE_TAG
 
   deploy-duchy-1:
     if: inputs.deploy_duchy-1 == true
