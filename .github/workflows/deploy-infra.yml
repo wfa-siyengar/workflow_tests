@@ -53,9 +53,8 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v2
       - id: get-image-tag-step
-        run: |
-          sh ./.github/workflows/export-image-tag.sh
-          echo "image_tag=$IMAGE_TAG" >> $GITHUB_OUTPUT
+        run: sh ./.github/workflows/export-image-tag.sh && echo "image_tag=$IMAGE_TAG" >> $GITHUB_OUTPUT
+        shell: bash
 
   deploy-kingdom:
     if: inputs.deploy_kingdom == true
