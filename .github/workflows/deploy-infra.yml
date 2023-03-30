@@ -72,7 +72,6 @@ jobs:
       environment: ${{ inputs.environment }}
 
   deploy-duchy-3:
-    runs-on: ubuntu-latest
     if: inputs.deploy_duchy-3 == true
     uses: ./.github/workflows/deploy-duchy.yml
     with:
