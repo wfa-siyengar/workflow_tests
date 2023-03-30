@@ -44,13 +44,15 @@ permissions:
   id-token: write
 
 jobs:
-  image-tag:
+  get-image-tag:
     runs-on: ubuntu-latest
     if: inputs.create_image == true
+    outputs:
+      image_tag: ${{ steps.get-image-tag-step.outputs.image_tag }}
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
-      - id: image-tag
+      - id: get-image-tag-step
         run: |
           sh ./.github/workflows/export-image-tag.sh
           echo "image_tag=$IMAGE_TAG" >> $GITHUB_OUTPUT
@@ -58,8 +60,9 @@ jobs:
   deploy-kingdom:
     if: inputs.deploy_kingdom == true
     uses: ./.github/workflows/deploy-kingdom.yml
+    needs: image-tag
     with:
-      image_tag: ${{ steps.image-tag.outputs.image_tag }}
+      image_tag: ${{ needs.get-image-tag.outputs.image_tag }}
 
   deploy-duchy-1:
     if: inputs.deploy_duchy-1 == true
