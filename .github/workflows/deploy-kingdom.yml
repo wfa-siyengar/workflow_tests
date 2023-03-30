@@ -16,6 +16,10 @@ name: 'Deploy Kingdom'
 
 on:
   workflow_call:
+    inputs:
+      image_tag:
+        type: string
+        description: 'Tag Name'
 
 permissions:
   contents: read
