@@ -30,7 +30,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - id: echo-the-tag
-        run: echo "FROM DEPLOY-KINGDOM - The tag Generated is $IMAGE_TAG"
+        run: echo "FROM DEPLOY-KINGDOM - The tag received is ${{ inputs.image_tag }}"
       - name: Create Kingdom
         id: create-kingdom
         run: echo "Kingdom Created."
