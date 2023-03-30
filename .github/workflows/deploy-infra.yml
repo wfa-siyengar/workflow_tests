@@ -48,9 +48,11 @@ jobs:
     runs-on: ubuntu-latest
     if: inputs.create_image == true
     steps:
-      - id: get-image-tag
-        run: cd ./.github/workflows && pwd
-      - id: echo-the-tag
+      - name: Checkout code
+        uses: actions/checkout@v2
+      - id: Get Image Tag
+        run: ./.github/workflows/export-image-tag.sh
+      - id: Echo the tag
         run: echo "The tag Generated is $IMAGE_TAG"
 
   deploy-kingdom:
