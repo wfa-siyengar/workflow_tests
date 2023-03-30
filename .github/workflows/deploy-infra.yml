@@ -46,10 +46,11 @@ permissions:
 jobs:
   image-tag:
     if: inputs.create_image == true
-    uses: ./.github/workflows/export-image-tag.sh
     steps:
       - id: get-image-tag
-        run: echo "Image Tag generated is $IMAGE_TAG"
+        run: ./.github/workflows/export-image-tag.sh
+      - id: echo-the-tag
+        run: echo "The tag Generated is $IMAGE_TAG"
 
   deploy-kingdom:
     if: inputs.deploy_kingdom == true
