@@ -52,9 +52,10 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
+      - id: generate-tag
+        run: sh ./.github/workflows/export-image-tag.sh
       - id: get-image-tag-step
-        run: sh ./.github/workflows/export-image-tag.sh && echo "image_tag=$IMAGE_TAG" >> $GITHUB_OUTPUT
-        shell: bash
+        run: echo "image_tag=$IMAGE_TAG" >> $GITHUB_OUTPUT
 
   deploy-kingdom:
     if: inputs.deploy_kingdom == true
