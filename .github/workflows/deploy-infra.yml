@@ -60,7 +60,7 @@ jobs:
   deploy-kingdom:
     if: inputs.deploy_kingdom == true
     uses: ./.github/workflows/deploy-kingdom.yml
-    needs: image-tag
+    needs: get-image-tag
     with:
       image_tag: ${{ needs.get-image-tag.outputs.image_tag }}
 
