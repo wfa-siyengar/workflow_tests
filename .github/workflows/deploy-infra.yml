@@ -52,8 +52,6 @@ jobs:
         uses: actions/checkout@v2
       - id: get-image-tag
         run: sh ./.github/workflows/export-image-tag.sh
-      - id: echo-the-tag
-        run: echo "The tag Generated is $IMAGE_TAG"
 
   deploy-kingdom:
     if: inputs.deploy_kingdom == true

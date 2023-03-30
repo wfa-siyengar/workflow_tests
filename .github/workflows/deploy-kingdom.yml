@@ -25,6 +25,8 @@ jobs:
   deploy_kingdom:
     runs-on: ubuntu-latest
     steps:
+      - id: echo-the-tag
+        run: echo "FROM DEPLOY-KINGDOM - The tag Generated is $IMAGE_TAG"
       - name: Create Kingdom
+        id: create-kingdom
         run: echo "Kingdom Created."
-        shell: bash
